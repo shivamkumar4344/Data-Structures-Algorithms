@@ -47,5 +47,12 @@ int main()
     string out = desc.substr(5,2);
     cout<<"output : "<<out<<endl;
 
+    string s = "hello";
+    cout<<s.length()<<endl;
+    s.pop_back();
+    cout<<s.length()<<endl;
+    
+
+
     return 0;
 }
