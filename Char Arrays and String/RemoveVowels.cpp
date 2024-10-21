@@ -3,11 +3,12 @@ using namespace std;
 
 string removeVowels(string str)
 {
-    string ans="";
-    for(auto ch:str)
+    string ans = "";
+    for(int i=0;i<str.length();i++)
     {
-        if(ch!='a' && ch!='e' && ch!='i' && ch!='o' && ch!='u' && ch!='A' && ch!='E' && ch!='I' && ch!='O' && ch!='U' ){
-            ans+=ch;
+        char ch = str[i];
+        if(ch!='a' &&  ch!='e' && ch!='i' &&ch!='o' &&ch!='u' &&ch!='A' &&ch!='E' &&ch!='I' &&ch!='O' &&ch!='U'){
+            ans += ch;
         }
     }
     return ans;
