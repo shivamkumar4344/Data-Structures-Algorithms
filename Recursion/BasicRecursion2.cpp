@@ -12,18 +12,18 @@ void printArray(int arr[], int size, int i)
     printArray(arr, size, i + 1);
 }
 
-bool linearSearch(int arr[], int size, int index, int target)
+int linearSearch(int arr[], int size, int index, int target)
 {
     if (index >= size)
     {
-        return false;
+        return -1;
     }
     if (arr[index] == target)
     {
-        return true;
+        return index;
     }
 
-    return linearSearch(arr, size, index + 1, target);
+    linearSearch(arr, size, index + 1, target);
 }
 
 void findMini(int arr[], int i, int n, int &mini)
@@ -52,20 +52,47 @@ void solve(int arr[], int ind, int size, vector<int> &ans)
     solve(arr, ind + 1, size, ans);
 }
 
+void findMaxi(int arr[],int index,int size,int& maxi){
+
+    if(index >= size){
+        return;
+    }
+
+    maxi = max(arr[index],maxi);
+
+    findMaxi(arr,index+1,size,maxi);
+
+}
+
+void doubling(int arr[],int index,int size)
+{
+    if(index>=size)
+    {
+        return;
+    }
+
+    cout<< 2 * arr[index]<<" ";
+
+    doubling(arr,index+1,size);
+}
+
 int main()
 {
 
-    int arr[] = {2, 10, 20, 30, 45};
+    int arr[] = {2, 100, 20, 30, 45};
     int size = 5;
     int index = 0;
     int target = 30;
     int mini = INT_MAX;
+    int maxi = INT_MIN;
     vector<int> ans;
-    cout << linearSearch(arr, size, index + 1, target) << endl;
+    cout << "Index of the element : "<<linearSearch(arr, size, index + 1, target) << endl;
     printArray(arr, size, index);
     cout << endl;
     findMini(arr, index, size, mini);
     cout << "Minimum number is : " << mini << endl;
+    findMaxi(arr,index,size,maxi);
+    cout << "Maximum number is : " << maxi << endl;
 
     solve(arr, index, size, ans);
     for (auto it : ans)
@@ -73,6 +100,8 @@ int main()
         cout << it << " ";
     }
     cout << endl;
+
+    doubling(arr,index,size);
 
     return 0;
 }
