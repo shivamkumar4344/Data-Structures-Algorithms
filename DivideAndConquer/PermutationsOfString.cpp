@@ -14,7 +14,7 @@ void findPermutations(string& str,int index){
         swap(str[index],str[j]);
 
         findPermutations(str,index+1);
-        //again swap to change in original string not in copy so we pass string as a refrence.
+        //backtracking-again swap to change in original string not in copy so we pass string as a refrence.
         swap(str[index],str[j]);
     }
 }
