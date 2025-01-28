@@ -6,8 +6,8 @@ void takeOrNot(vector<int>& arr, vector<int>& temp, int idx)
 {
     if (idx == arr.size())
     {
-        for(auto it : arr){
-        cout<<it<<" ";
+        for(auto it : temp){
+        cout<<it<<endl;
     }
     cout<<endl;
     }
