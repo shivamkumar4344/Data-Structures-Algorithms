@@ -10,6 +10,10 @@ class Node{
         this->data = data;
         this->next = NULL;
     }
+    ~Node()
+    {
+        cout<<endl<<"Destructor is being called "<<this->data<<endl;
+    }
 };
 
 void insertAtHead(Node* &head,Node* &tail,int data)
@@ -87,6 +91,60 @@ void insertAtPosition(Node* &head,Node* &tail,int data,int pos)
     }
 }
 
+void deleteNode(Node* &head,Node* &tail,int pos)
+{
+    if(head == NULL)
+    {
+        cout<<"Can't delete . LL is empty";
+        return;
+    }
+
+    if(head == tail)
+    {
+        Node* temp = head;
+        delete temp;
+        head = NULL;
+        tail = NULL;
+    }
+
+    if(pos == 1)
+    {
+        Node* temp = head;
+        head = head->next;
+        temp->next = NULL;
+        delete temp;
+    }
+
+    else if(pos == getLength(head))
+    {
+        Node* prev = head;
+        while(prev->next != tail)
+        {
+            prev = prev->next;
+        }
+
+        prev->next = NULL;
+        delete tail;
+        tail = prev;
+    }
+
+    else{
+        
+        Node* curr = head;
+        Node* prev = NULL;
+        while(pos != 1){
+            pos--;
+            prev = curr;
+            curr = curr->next;
+        }
+
+        prev->next = curr->next;
+        curr->next = nullptr;
+        delete curr;
+    }
+}
+
+
 int main()
 {
     Node* head = NULL;
@@ -96,6 +154,8 @@ int main()
     insertAtHead(head,tail,30);
     insertAtTail(head,tail,50);
     insertAtPosition(head,tail,7900,3);
+    printLL(head);
+    deleteNode(head,tail,2);
     printLL(head);
 
     return 0;
