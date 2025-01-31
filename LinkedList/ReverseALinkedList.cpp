@@ -1,62 +1,21 @@
 #include<bits/stdc++.h>
 using namespace std;
-
+//remember to pass by reference
 class Node{
     public:
         int data;
         Node* next;
     Node(int data)
     {
-        this->data=data;
+        this->data = data;
         this->next = NULL;
     }
 };
 
 
-void printLL(Node* head)
-{
-    Node* temp = head;
-    while(temp != NULL)
-    {
-        cout<<temp->data<<"->";
-        temp = temp->next;
-
-    }cout<<endl;
-}
-
-void reverseLL(Node* &head)
-{
-    //empty case
-    if(head==NULL)
-    {
-        cout<<"Can't reverse,not a element in the list.";
-        return;
-    }
-    // single element
-    if(head->next == NULL)
-    {
-        return;
-    }
-    else{
-        //multiple elements
-
-        Node* curr = head;
-        Node* prev = nullptr;
-        while(curr != NULL)
-        {
-            Node* currNext = curr->next;
-            curr->next = prev;
-            prev = curr;
-            curr = currNext;
-        }
-        head = prev;
-
-    }    
-}
-
 void insertAtHead(Node* &head,int data)
 {
-    if(head==NULL)
+    if(head ==  NULL)
     {
         Node* temp = new Node(data);
         head = temp;
@@ -66,7 +25,36 @@ void insertAtHead(Node* &head,int data)
         temp->next = head;
         head = temp;
     }
+}
 
+void printLL(Node* head)
+{
+    Node* temp = head;
+    while(temp != NULL)
+    {
+        cout<<temp->data<<"->";
+        temp = temp->next;
+    }cout<<endl;
+}
+
+void reverseLL(Node* &head)
+{
+    if(head==NULL or head->next == NULL)
+    {
+        return;
+    }
+    else{
+        Node* curr = head;
+        Node* prev = nullptr;
+        while(curr != nullptr)
+        {
+            Node* currNext = curr->next;
+            curr->next = prev;
+            prev = curr;
+            curr = currNext;
+        }
+        head = prev;
+    }
 }
 
 int main()
@@ -78,5 +66,5 @@ int main()
     printLL(head);
     reverseLL(head);
     printLL(head);
-
+    return 0;
 }
