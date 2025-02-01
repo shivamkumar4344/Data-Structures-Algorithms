@@ -60,7 +60,7 @@ void reverseLL(Node* &head)
 int main()
 {
     Node* head = NULL;
-    insertAtHead(head,30);
+    insertAtHead(head,29);
     insertAtHead(head,20);
     insertAtHead(head,10);
     printLL(head);
