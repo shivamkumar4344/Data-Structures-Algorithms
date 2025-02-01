@@ -49,6 +49,22 @@ void insertAtHead(Node* &head,int data)
     }
 }
 
+void fastAndSlow(Node* head)
+{
+    Node* fast = head;
+    Node* slow = head;
+    while(fast != nullptr)
+    {
+        fast = fast->next;
+        if(fast != nullptr)
+        {
+            fast = fast->next;
+            slow = slow->next;
+        }
+    }
+    cout<<"Middle of node is : "<<slow->data<<endl;
+}
+
 void printLL(Node* head)
 {
     Node* temp = head;
@@ -65,8 +81,10 @@ int main()
     insertAtHead(head,20);
     insertAtHead(head,10);
     insertAtHead(head,40);
+    insertAtHead(head,50);
     printLL(head);
-    middleNode(head);
+    // middleNode(head);
+    fastAndSlow(head);
     
     return 0;
 
