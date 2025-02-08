@@ -5,17 +5,20 @@ vector<int> nextSmaller(vector<int>& arr,int n)
 {
     stack<int> st;
     vector<int> ans(n);
-    st.push(-1);
     for(int i=n-1;i>=0;i--)
     {
-        int curr = arr[i];
-        while(st.top() >= curr)
+        while(!st.empty() and st.top() >= arr[i])
         {
             st.pop();
         }
-        ans[i] = st.top();
-        st.push(curr);
-
+        if(st.empty())
+        {
+            ans[i] = -1;
+        }
+        else{
+            ans[i] = st.top();
+        }
+        st.push(arr[i]);
     }
     return ans;
 }
