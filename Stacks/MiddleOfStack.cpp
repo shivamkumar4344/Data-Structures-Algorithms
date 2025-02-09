@@ -11,7 +11,7 @@ void solve(stack<int>& st,int pos,int &ans)
         return;
     }
 
-    //1 case
+    //1 case solved by us.
     pos--;
     int temp = st.top();
     st.pop();
