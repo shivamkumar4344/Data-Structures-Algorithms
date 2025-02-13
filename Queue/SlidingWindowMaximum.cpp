@@ -21,26 +21,28 @@ vector<int> bruteMaximum(vector<int> &arr, int n, int k)
     return ans;
 }
 
+// second approach
+// using sliding window technique
+// T.C = O(n) S.C = O(n)
+
 vector<int> slidingWindow(vector<int> &arr, int k)
 {
     int n = arr.size();
     vector<int> ans;
     deque<int> dq;
-    for (int i = 0; i < n; i++){
-        if(!dq.empty() && dq.front() <= i-k)
+    for (int i = 0; i < n; i++)
+    {
+        if (!dq.empty() and dq.front() <= i - k)
         {
             dq.pop_front();
         }
-
-        while(!dq.empty() && arr[dq.back()] <= arr[i])
+        while (!dq.empty() and arr[dq.back()] <= arr[i])
         {
             dq.pop_back();
         }
         dq.push_back(i);
-        if(i >= k-1){
+        if (i >= k - 1)
             ans.push_back(arr[dq.front()]);
-        }
-
     }
     return ans;
 }
@@ -51,7 +53,7 @@ int main()
     int k = 3;
     int n = arr.size();
     // vector<int> ans = bruteMaximum(arr, n, k);
-    vector<int> ans = slidingWindow(arr,k);
+    vector<int> ans = slidingWindow(arr, k);
     for (int i : ans)
     {
         cout << i << " ";
