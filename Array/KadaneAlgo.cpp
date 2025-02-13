@@ -3,7 +3,7 @@ using namespace std;
 
 int main()
 {
-    vector<int> arr = {-2,1,3,-3};
+    vector<int> arr = {-2,1,3,-3,2,5,0,-1};
     int currSum = 0;
     int maxSum = arr[0];
     for(int i=0;i<arr.size();i++)
