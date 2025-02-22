@@ -15,7 +15,7 @@ public:
     }
 };
 
-Node *insertIntoBST(Node* &root, int data)
+Node *insertIntoBST(Node* root, int data)
 {
     if (root == NULL)
     {
