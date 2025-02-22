@@ -79,10 +79,48 @@ void levelOrderTraversal(Node *root)
     }
 }
 
+void sortedBSTOrInorder(Node* root)
+{
+    if (root == NULL) return;
+
+    sortedBSTOrInorder(root->left);
+    cout<<root->data<<" ";
+    sortedBSTOrInorder(root->right);
+}
+
+Node* minValue(Node* root)
+{
+    if(root == NULL) return NULL;
+
+    Node* temp = root;
+    while(temp->left != NULL)
+    {
+        temp = temp->left;
+    }
+    return temp;
+}
+
+Node* maxValue(Node* root)
+{
+    if(root == NULL) return NULL;
+
+    Node* temp = root;
+    while(temp->right != NULL)
+    {
+        temp = temp->right;
+    }
+    return temp;
+}
+// 50 30 40 20 60 55 70 80 25 -1
 int main()
 {
     Node *root = NULL;
     createBST(root);
     levelOrderTraversal(root);
+    cout<<endl;
+    sortedBSTOrInorder(root);
+    cout<<endl;
+    cout<<"Max Value : "<<maxValue(root)->data<<endl;
+    cout<<"Min Value : "<<minValue(root)->data<<endl;
     return 0;
 }
