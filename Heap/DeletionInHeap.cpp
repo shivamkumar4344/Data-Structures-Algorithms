@@ -42,6 +42,42 @@ class Heap{
             cout<<arr[i]<<" ";
         }cout<<endl;
     }
+
+
+    int deleteHeap()
+    {
+        //to return deleted element
+        int ans = arr[1];
+        //swapping first element to last element
+        arr[1] = arr[size];
+        //decreasing the size or deleting the swapped last element-means the root element
+        size--;
+
+        int index = 1;
+        while(index < size)
+        {
+            int left = 2*index;
+            int right = 2* index+1;
+            int largest = index;
+            if(left <= size && arr[left] > arr[largest])
+            {
+                largest = left;
+            }
+
+            if(right <= size && arr[right] > arr[largest])
+            {
+                largest = right;
+            }
+
+            if(index == largest) break;
+            else{
+                swap(arr[index],arr[largest]);
+                index = largest;
+            }
+
+        }
+        return ans;
+    }
 };
 
 
@@ -56,6 +92,7 @@ int main()
     h.insert(6);
     h.insert(25);
     h.insert(50);
+    cout<<"Deleted Element from the heap: "<<h.deleteHeap()<<endl;
     h.print();
 
     return 0;
