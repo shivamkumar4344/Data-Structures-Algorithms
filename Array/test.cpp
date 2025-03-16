@@ -1,6 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 // 1 0 0 0 1 0 0 1 k = 2
+// 1 0 0 0 1 0 0 1 k = 2  number of subarrays where no.of 1's == k 
 int countSubarr(vector<int>& arr,int k)
 {
     unordered_map<int,int> mp;
