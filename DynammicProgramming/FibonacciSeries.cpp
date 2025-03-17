@@ -25,11 +25,30 @@ int solveUsingTabulation(int n)
     return dp[n];
 }
 
+
+int solveUsingTabulationSpaceOptimised(int n)
+{
+    int prev = 0;
+    if(n == 0) return 0;
+
+    int curr = 1;
+    
+    int ans;
+    for(int i=2;i<=n;i++)
+    {
+        ans = prev+curr;
+        prev = curr;
+        curr = ans;
+    }
+    return ans;
+}
+
 int main()
 {
     int n = 6;
     vector<int> dp(n+1,-1);
     cout<<n<<" th Fibonacci number by Memoization is : "<<solveUsingMemo(n,dp)<<endl;
     cout<<n<<" th Fibonacci number by Tabulation is : "<<solveUsingTabulation(n)<<endl;
+    cout<<n<<" th Fibonacci number by Space Optimised Tabulation is : "<<solveUsingTabulationSpaceOptimised(n)<<endl;
     return 0;
 }
