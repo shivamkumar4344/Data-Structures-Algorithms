@@ -18,7 +18,7 @@ int indexFirst(string& big,string& small)
 
 int main()
 {
-    string big = "butsaad";
+    string big = "butsad";
     string small = "sad";
     cout<<"Answer is : "<<indexFirst(big,small)<<endl;
     return 0;
