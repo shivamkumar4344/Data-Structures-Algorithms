@@ -16,7 +16,7 @@ int trap(vector<int>& arr)
         if(leftMax < rightMax) // 4 < 5 , 4 < 5 , 4 < 5 , 4 < 5 , 4 < 5
         {
             l++;//1 , 2 , 3 , 4
-            leftMax = max(leftMax,arr[l]); //4 , 4 , 4 , 
+            leftMax = max(leftMax,arr[l]); //4 , 4 , 4 , 4
             res += leftMax - arr[l] ; // 2 + 4 +  1 + 2  
         }
         else{
